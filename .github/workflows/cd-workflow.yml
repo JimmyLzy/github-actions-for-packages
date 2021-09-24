@@ -4,8 +4,11 @@ name: Docker CD
 
 on:
   push:
-    paths:
-      - "**Dockerfile**"
+    branches:
+      main
+  pull_request:
+    branches:
+      main
 jobs:
   build:
     runs-on: ubuntu-latest
