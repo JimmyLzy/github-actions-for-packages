@@ -61,9 +61,10 @@ jobs:
         name: webpack artifacts
         path: public
     - name: Build container image
-      uses: docker/build-push-action@v2
+      uses: docker/build-push-action@v1
       with:
-        push: true
-        tags: github-actions-for-packages/tictactoc:latest
-        secrets: |
-          GIT_AUTH_TOKEN=${{ secrets.GITHUB_TOKEN }}
+        username: ${{github.actor}}
+        password: ${{secrets.GITHUB_TOKEN}}
+        registry: docker.pkg.github.com
+        repository: github-actions-for-packages/tic-tac-toe
+        tag_with_sha: true
