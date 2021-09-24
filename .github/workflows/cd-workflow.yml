@@ -65,3 +65,5 @@ jobs:
       with:
         push: true
         tags: github-actions-for-packages/tictactoc:latest
+        secrets: |
+          GIT_AUTH_TOKEN=${{ secrets.GITHUB_TOKEN }}
